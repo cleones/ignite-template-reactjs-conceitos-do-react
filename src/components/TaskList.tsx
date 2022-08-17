@@ -24,12 +24,14 @@ export function TaskList() {
     }
 
     function handleCreateNewTask() {
+        if(!newTaskTitle) return;
         const newTask: Task = {
             id: randId(),
             title: newTaskTitle,
             isComplete: false
         }
         setTasks(old => [...old, newTask])
+        setNewTaskTitle('');
     }
 
     function handleToggleTaskCompletion(id: number) {
